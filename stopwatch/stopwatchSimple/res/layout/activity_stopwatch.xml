@@ -26,7 +26,18 @@
 				android:layout_marginTop="20dp"
 				android:id="@+id/timerBackground"
 				android:background="@drawable/timerbackground">
+					<TextView
+					android:textColor="#004254"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:textSize="60sp"
+ 					android:text="@string/timer"
+ 					android:id="@+id/timer">
+					</TextView>
 				</LinearLayout>
+				
+				<!--Begin Button Linear Layout -->
 				<LinearLayout
 				android:orientation="horizontal"
 				android:layout_gravity="center_horizontal"
@@ -35,7 +46,50 @@
 				android:layout_height="wrap_content"
 				android:layout_marginTop="20dp"
 				android:background="@drawable/buttonarea">
+					<Button
+					android:layout_marginLeft="5dp"
+					android:layout_marginRight="5dp"
+					android:background="@drawable/stopbuttonstates"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_weight="1"
+					android:textColor="#7A1100"
+					android:shadowColor="#DF726E"
+					android:text="@string/stopText"
+					android:id="@+id/stopButton"
+					android:visibility="gone"
+					android:onClick="stopClick">
+					</Button>
+					<Button
+					android:layout_marginLeft="5dp"
+					android:background="@drawable/startbuttonstates"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:textColor="#5F3A00"
+					android:shadowColor="#FBEBC5"
+					android:layout_weight="1"
+					android:text="@string/startText"
+					android:id="@+id/startButton"
+					android:onClick="startClick">
+					</Button>
+					<Button
+					android:layout_marginRight="5dp"
+					android:background="@drawable/resetbuttonstates"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_weight="1"
+					android:textColor="#2E2E2E"
+					android:shadowColor="#959597"
+					android:text="@string/resetText"
+					android:id="@+id/resetButton"
+					android:onClick="resetClick">
+					</Button>
 				</LinearLayout>
+				<!--End Button Linear Layout -->
+				
 				<LinearLayout
 				android:orientation="horizontal"
 				android:layout_width="wrap_content"
@@ -50,6 +104,35 @@
 					android:layout_width="wrap_content">
 					</ImageView>
 				</LinearLayout>
+				<ScrollView
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:id="@+id/scrollView">
+					<TextView
+					android:layout_width="fill_parent"
+					android:layout_height="fill_parent"
+					android:text="@string/backgroundText"
+					android:id="@+id/backgroundText">
+					</TextView>
+				</ScrollView>
 			</LinearLayout>
 		</FrameLayout>
+		<RelativeLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true" >
+			<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:background="#000000">
+				<TextView
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:text="@string/adsText">
+				</TextView>
+			</LinearLayout>
+		</RelativeLayout>
 	</RelativeLayout>
