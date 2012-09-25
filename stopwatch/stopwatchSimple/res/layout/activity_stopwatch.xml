@@ -1,15 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world"
-        tools:context=".Stopwatch" />
-
-</RelativeLayout>
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+		<FrameLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:id="@+id/parentFrameLayout">
+			<ImageView
+			android:src="@drawable/background"
+			android:scaleType="fitXY"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:id="@+id/backgroundImageView">
+			</ImageView>
+			<LinearLayout
+			android:orientation="vertical"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:id="@+id/linearLayout">
+				<LinearLayout
+				android:orientation="horizontal"
+				android:gravity="center"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:id="@+id/timerBackground"
+				android:background="@drawable/timerbackground">
+				</LinearLayout>
+				<LinearLayout
+				android:orientation="horizontal"
+				android:layout_gravity="center_horizontal"
+				android:gravity="center"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:background="@drawable/buttonarea">
+				</LinearLayout>
+				<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal">
+					<ImageView
+					android:src="@drawable/hline"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_marginTop="20dp"
+					android:layout_marginBottom="10dp"
+					android:layout_width="wrap_content">
+					</ImageView>
+				</LinearLayout>
+			</LinearLayout>
+		</FrameLayout>
+	</RelativeLayout>
