@@ -1,0 +1,1 @@
+These images are provided for a tutorial for shawnbe.com, please do not redistribute these images without my permission. For any questions feel free to email me at shawn@shawnbe.com
