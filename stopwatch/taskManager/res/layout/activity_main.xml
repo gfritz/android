@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+<!--     <EditText  -->
+<!--         android:id="@+id/taskTitle" -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:inputType="textShortMessage"/> -->
+
+    <Button
+        android:id="@+id/createTask"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/create"
+        android:onClick="createTask" />
+
+    <EditText
+        android:id="@+id/taskTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/createTask"
+        android:layout_alignBottom="@+id/createTask"
+        android:layout_toLeftOf="@+id/createTask"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/task" />
+    <ScrollView 
+        android:id="@+id/scroll_id"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true">
+        
+        <LinearLayout android:orientation="vertical"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/fragmenent_container">            
+        </LinearLayout>
+        
+    </ScrollView>
+  
+
+</RelativeLayout>
