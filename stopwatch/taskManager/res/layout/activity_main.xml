@@ -13,8 +13,7 @@
         android:id="@+id/createTask"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        
+        android:layout_height="wrap_content"        
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:text="@string/create"
@@ -36,10 +35,12 @@
         android:layout_height="fill_parent"
         android:fillViewport="true">
         
-        <LinearLayout android:orientation="vertical"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:id="@+id/fragmenent_container">            
+        <LinearLayout
+            android:id="@+id/fragmenent_container"
+            android:layout_width="fill_parent"
+            android:layout_height="410dp"
+            android:orientation="vertical" >
+            
         </LinearLayout>
         
     </ScrollView>

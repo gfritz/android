@@ -122,11 +122,13 @@
 				android:layout_height="wrap_content"
 				android:layout_gravity="center_horizontal"
 				android:id="@+id/scrollView">
+
 					<TextView
-					android:layout_width="fill_parent"
-					android:layout_height="fill_parent"
-					android:text="@string/backgroundText"
-					android:id="@+id/backgroundText">
+					    android:id="@+id/backgroundText"
+					    android:layout_width="fill_parent"
+					    android:layout_height="wrap_content"
+					    android:text="@string/backgroundText" >
+
 					</TextView>
 				</ScrollView>
 			</LinearLayout>

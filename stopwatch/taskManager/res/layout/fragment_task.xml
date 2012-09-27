@@ -3,17 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-	
+	
     <EditText
-    android:id="@+id/taskTitle"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignBaseline="@+id/createTask"
-    android:layout_alignBottom="@+id/createTask"
-    android:layout_toLeftOf="@+id/createTask"
-    android:ems="10"
-    android:inputType="text"
-    android:text="@string/task" />
+        android:id="@+id/taskTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/createTask"
+        android:layout_alignBottom="@+id/createTask"
+        android:layout_toLeftOf="@+id/createTask"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/taskTitle" />
     
     <FrameLayout
 		android:layout_width="fill_parent"
