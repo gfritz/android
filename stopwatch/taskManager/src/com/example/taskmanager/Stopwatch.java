@@ -1,5 +1,6 @@
 package com.example.taskmanager;
 
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
@@ -7,6 +8,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Button;
@@ -24,51 +26,90 @@ public class Stopwatch extends Fragment {
 	private boolean stopped = false;
 	
     
+	
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_stopwatch, container, false);
+        View v = inflater.inflate(R.layout.activity_stopwatch, container, false);
+        Button BTNstart =  (Button)v.findViewById(R.id.startButton);
+        Button BTNstop =  (Button)v.findViewById(R.id.stopButton);
+        Button BTNreset =  (Button)v.findViewById(R.id.resetButton);
+        
+        OnClickListener startHandle = new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				showStopButton();
+		    	if(stopped){
+		    		startTime = System.currentTimeMillis() - elapsedTime;
+		    	}
+		    	else{
+		    		startTime = System.currentTimeMillis();
+		    	}
+		    	mHandler.removeCallbacks(startTimer);
+		        mHandler.postDelayed(startTimer, 0);
+			}
+		};
+		BTNstart.setOnClickListener(startHandle);
+		
+		OnClickListener stopHandle = new View.OnClickListener() {
+			
+			public void onClick(View v) {
+		    	hideStopButton();
+		    	mHandler.removeCallbacks(startTimer);
+		    	stopped = true;				
+			}
+		};
+		BTNstop.setOnClickListener(stopHandle);
+		
+		OnClickListener resetHandle = new View.OnClickListener() {
+			
+			public void onClick(View v) {
+		    	stopped = false;
+		    	((TextView)v.findViewById(R.id.timer)).setText("00:00:00");
+		    	((TextView)v.findViewById(R.id.timerMs)).setText(".0");
+				
+			}
+		};
+		BTNreset.setOnClickListener(resetHandle);
+        
+        return v;
+    }
+    
+    public void setTitle(String title){
+    	//R.id.backgroundText = title;
     }
     
     public void startClick (View view){
-    	showStopButton();
-    	if(stopped){
-    		startTime = System.currentTimeMillis() - elapsedTime;
-    	}
-    	else{
-    		startTime = System.currentTimeMillis();
-    	}
-    	mHandler.removeCallbacks(startTimer);
-        mHandler.postDelayed(startTimer, 0);
+    	
     	
     }
 
-    public void stopClick (View view){
-    	hideStopButton();
-    	mHandler.removeCallbacks(startTimer);
-    	stopped = true;
+    public void stopClick (){
+
     }
 
-    public void resetClick (View view){
-    	stopped = false;
-    	((TextView)findViewById(R.id.timer)).setText("00:00:00");
-    	((TextView)findViewById(R.id.timerMs)).setText(".0");
+    public void resetClick (){
+
     }
     
     private void showStopButton(){
-        ((Button)findViewById(R.id.startButton)).setVisibility(View.GONE);
-        ((Button)findViewById(R.id.resetButton)).setVisibility(View.GONE);
-        ((Button)findViewById(R.id.stopButton)).setVisibility(View.VISIBLE);
+    	View v = getView();
+        ((Button)v.findViewById(R.id.startButton)).setVisibility(View.GONE);
+        ((Button)v.findViewById(R.id.resetButton)).setVisibility(View.GONE);
+        ((Button)v.findViewById(R.id.stopButton)).setVisibility(View.VISIBLE);
     }
 
     private void hideStopButton(){
-        ((Button)findViewById(R.id.startButton)).setVisibility(View.VISIBLE);
-        ((Button)findViewById(R.id.resetButton)).setVisibility(View.VISIBLE);
-        ((Button)findViewById(R.id.stopButton)).setVisibility(View.GONE);
+    	View v = getView();
+        ((Button)v.findViewById(R.id.startButton)).setVisibility(View.VISIBLE);
+        ((Button)v.findViewById(R.id.resetButton)).setVisibility(View.VISIBLE);
+        ((Button)v.findViewById(R.id.stopButton)).setVisibility(View.GONE);
     }
     
     private void updateTimer (float time){
+    	View v = getView();
 		secs = (long)(time/1000);
 		mins = (long)((time/1000)/60);
 		hrs = (long)(((time/1000)/60)/60);
@@ -120,8 +161,8 @@ public class Stopwatch extends Fragment {
 		milliseconds = milliseconds.substring(milliseconds.length()-3, milliseconds.length()-2);
 
 		/* Setting the timer text to the elapsed time */
-		((TextView)findViewById(R.id.timer)).setText(hours + ":" + minutes + ":" + seconds);
-		((TextView)findViewById(R.id.timerMs)).setText("." + milliseconds);
+		((TextView)v.findViewById(R.id.timer)).setText(hours + ":" + minutes + ":" + seconds);
+		((TextView)v.findViewById(R.id.timerMs)).setText("." + milliseconds);
     }//end Update Timer
     
     private Runnable startTimer = new Runnable() {

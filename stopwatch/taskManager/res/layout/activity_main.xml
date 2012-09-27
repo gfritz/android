@@ -1,49 +1,37 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+<?xml version="1.0" encoding="utf-8"?>
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    xmlns:tools="http://schemas.android.com/tools"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" >
 
-<!--     <EditText  -->
-<!--         android:id="@+id/taskTitle" -->
-<!--         android:layout_width="fill_parent" -->
-<!--         android:layout_height="wrap_content" -->
-<!--         android:inputType="textShortMessage"/> -->
+<!-- 	    <EditText -->
+<!-- 	        android:id="@+id/taskTitle" -->
+<!-- 	        android:layout_width="fill_parent" -->
+<!-- 	        android:layout_height="wrap_content" -->
+<!-- 	        android:ems="10" -->
+<!-- 	        android:hint="@string/task" -->
+<!-- 	        android:inputType="text" /> -->
 
-    <Button
-        android:id="@+id/createTask"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"        
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/create"
-        android:onClick="createTask" />
+	    <ScrollView
+	        android:id="@+id/scroll_id"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:fillViewport="true" >
 
-    <EditText
-        android:id="@+id/taskTitle"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/createTask"
-        android:layout_alignBottom="@+id/createTask"
-        android:layout_toLeftOf="@+id/createTask"
-        android:ems="10"
-        android:inputType="text"
-        android:text="@string/task" />
-    <ScrollView 
-        android:id="@+id/scroll_id"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:fillViewport="true">
-        
-        <LinearLayout
-            android:id="@+id/fragmenent_container"
-            android:layout_width="fill_parent"
-            android:layout_height="410dp"
-            android:orientation="vertical" >
-            
-        </LinearLayout>
-        
-    </ScrollView>
-  
+	        <LinearLayout
+	            android:id="@+id/fragment_container"
+	            android:layout_width="fill_parent"
+	            android:layout_height="458dp"
+	            android:orientation="vertical" >
 
-</RelativeLayout>
+	            <Button
+	                android:id="@+id/createTask"
+	                style="?android:attr/buttonStyleSmall"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_weight="1"
+	                android:text="@string/create" />
+	        </LinearLayout>
+	    </ScrollView>
+
+	</RelativeLayout>

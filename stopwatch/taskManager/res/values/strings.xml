@@ -15,9 +15,12 @@
     <string name="adsText">Ads Go Here</string>
     <string name="menu_settings">Settings</string>
     <string name="taskTitle">Title</string>
-    <string name="taskDescr">Desription</string>
+    <string name="taskDescr">Description</string>
     <string name="task">Enter a Task</string>
     <string name="create">Create</string>
+    <string name="stopwatchBack">background of stopwatch</string>
+    <string name="splash_text">Garth Fritz</string>
+    <string name="splash_button">Tap Here!</string>
     
 
 </resources>
